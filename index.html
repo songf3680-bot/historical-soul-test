@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>测测你的灵魂对应哪位中国历史人物 · 趣味国风人格测试</title>
+  <meta name="description" content="40道生活化情景单选题，不考历史知识，从日常习惯、处事方式、社交模式、情绪反应与兴趣偏好出发，测测你的灵魂对应哪位中国历史人物。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 背景水墨宣纸氛围层 -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="ink-wash ink-wash-top"></div>
+    <div class="ink-wash ink-wash-bottom"></div>
+    <div class="paper-grain"></div>
+  </div>
+
+  <main class="app-shell">
+    <!-- ==================== 1. 测试首页 ==================== -->
+    <section id="screen-home" class="screen screen-active" aria-label="测试首页">
+      <div class="scroll-card home-card">
+        <span class="corner-ornament corner-tl" aria-hidden="true"></span>
+        <span class="corner-ornament corner-tr" aria-hidden="true"></span>
+        <span class="corner-ornament corner-bl" aria-hidden="true"></span>
+        <span class="corner-ornament corner-br" aria-hidden="true"></span>
+
+        <div class="home-top-bar">
+          <span class="mini-tag">灵魂鉴古 · 趣味人格测试</span>
+          <span class="seal-chip" aria-hidden="true">甲子拾遗</span>
+        </div>
+
+        <div class="home-hero">
+          <div class="hero-emblem" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="emblem-svg">
+              <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4" opacity="0.45" />
+              <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.7" />
+              <rect x="38" y="38" width="44" height="44" rx="4" fill="#A63429" />
+              <rect x="41.5" y="41.5" width="37" height="37" rx="2.5" fill="none" stroke="#F6F1E7" stroke-width="1.2" opacity="0.85" />
+              <text x="60" y="57" text-anchor="middle" fill="#F6F1E7" font-size="14" font-family="'Noto Serif SC','Songti SC',serif" font-weight="700" letter-spacing="2">照见</text>
+              <text x="60" y="73" text-anchor="middle" fill="#F6F1E7" font-size="14" font-family="'Noto Serif SC','Songti SC',serif" font-weight="700" letter-spacing="2">古魂</text>
+            </svg>
+          </div>
+
+          <h1 class="home-title">
+            <span class="title-prefix">测测你的灵魂对应哪位</span>
+            <span class="title-main">中国历史人物</span>
+          </h1>
+
+          <p class="home-subtitle">
+            不考历史典故，也不做刻板评判。<br />
+            借 <strong>40 道生活情景单选</strong>，从日常起居、处事方式、社交模式、情绪潮汐与志趣雅好出发，寻觅与你同频共振的千年灵魂。
+          </p>
+        </div>
+
+        <div class="divider-ornament" aria-hidden="true">
+          <span></span>
+          <i class="diamond"></i>
+          <span></span>
+        </div>
+
+        <div class="archetype-showcase">
+          <p class="showcase-label">涵盖七大历史人格原型 · 共 14 位传奇灵魂</p>
+          <div class="archetype-pills" id="home-archetype-pills">
+            <span class="archetype-pill">谋士</span>
+            <span class="archetype-pill">帝王</span>
+            <span class="archetype-pill">文人</span>
+            <span class="archetype-pill">侠客</span>
+            <span class="archetype-pill">诗人</span>
+            <span class="archetype-pill">将领</span>
+            <span class="archetype-pill">隐士</span>
+          </div>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-value">40</span>
+            <span class="meta-label">生活情景题</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-value">7维</span>
+            <span class="meta-label">性格星图</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-value">3-5<small>分</small></span>
+            <span class="meta-label">沉浸作答</span>
+          </div>
+        </div>
+
+        <div class="home-actions">
+          <button type="button" id="btn-start" class="btn btn-primary btn-lg">
+            <span>启卷测魂</span>
+            <svg viewBox="0 0 20 20" class="btn-icon" aria-hidden="true">
+              <path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <button type="button" id="btn-resume" class="btn btn-secondary hidden">
+            继续上次作答（第 <span id="resume-q-num">1</span> 题）
+          </button>
+        </div>
+
+        <p class="disclaimer-note">
+          定位说明：本测试为趣味国风人格探索，非历史知识考试，亦非专业心理诊断；纯本地运行，保护隐私。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== 2. 逐题作答页 ==================== -->
+    <section id="screen-quiz" class="screen" aria-label="答题页面">
+      <div class="quiz-wrapper">
+        <header class="quiz-header">
+          <div class="quiz-header-top">
+            <button type="button" id="btn-back-home" class="ghost-link" aria-label="返回首页">
+              <svg viewBox="0 0 20 20" class="mini-icon" aria-hidden="true">
+                <path d="M12.5 5 7.5 10l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>首页</span>
+            </button>
+            <span id="quiz-chapter" class="chapter-badge">卷一 · 日常起居</span>
+            <span id="quiz-counter" class="counter-text">01 / 40</span>
+          </div>
+
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="2" id="progress-bar-role">
+            <div id="progress-fill" class="progress-fill" style="width: 2.5%;"></div>
+          </div>
+          <div class="progress-sub">
+            <span id="progress-hint">请凭第一直觉选择最贴近你日常状态的一项</span>
+            <span id="progress-percent">3%</span>
+          </div>
+        </header>
+
+        <article id="question-card" class="scroll-card question-card">
+          <span class="corner-ornament corner-tl" aria-hidden="true"></span>
+          <span class="corner-ornament corner-tr" aria-hidden="true"></span>
+          <span class="corner-ornament corner-bl" aria-hidden="true"></span>
+          <span class="corner-ornament corner-br" aria-hidden="true"></span>
+
+          <div class="question-meta">
+            <span class="q-num-badge" id="q-num-badge">第 01 题</span>
+          </div>
+
+          <h2 id="question-text" class="question-text"></h2>
+
+          <div id="options-list" class="options-list" role="radiogroup" aria-labelledby="question-text"></div>
+
+          <div class="quiz-nav">
+            <button type="button" id="btn-prev" class="btn btn-outline btn-sm" disabled>
+              <svg viewBox="0 0 20 20" class="mini-icon" aria-hidden="true">
+                <path d="M12.5 5 7.5 10l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>上一题</span>
+            </button>
+
+            <span class="keyboard-hint">电脑端支持 A-D 键快选</span>
+
+            <button type="button" id="btn-next" class="btn btn-secondary btn-sm hidden">
+              <span id="btn-next-label">下一题</span>
+              <svg viewBox="0 0 20 20" class="mini-icon" aria-hidden="true">
+                <path d="M7.5 5 12.5 10l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== 3. 推演过渡页 ==================== -->
+    <section id="screen-loading" class="screen" aria-label="结果推演中">
+      <div class="scroll-card loading-card">
+        <div class="ink-loader" aria-hidden="true">
+          <div class="ink-ring ring-outer"></div>
+          <div class="ink-ring ring-inner"></div>
+          <div class="loader-seal">定魂</div>
+        </div>
+        <h2 class="loading-title">观象定魂 · 推演中</h2>
+        <p id="loading-status" class="loading-status">正在综合 40 道生活切面，校准你的七维性格星图…</p>
+      </div>
+    </section>
+
+    <!-- ==================== 4. 结果展示页 ==================== -->
+    <section id="screen-result" class="screen" aria-label="测试结果页">
+      <div class="result-wrapper">
+        <!-- 适合小红书/朋友圈直接截图的精致档案卡片 -->
+        <article id="result-capture-card" class="scroll-card result-card">
+          <span class="corner-ornament corner-tl" aria-hidden="true"></span>
+          <span class="corner-ornament corner-tr" aria-hidden="true"></span>
+          <span class="corner-ornament corner-bl" aria-hidden="true"></span>
+          <span class="corner-ornament corner-br" aria-hidden="true"></span>
+
+          <header class="result-card-header">
+            <div class="result-brand">
+              <span class="brand-dot"></span>
+              <span>灵魂鉴古 · 历史人格档案</span>
+            </div>
+            <div class="match-score-pill">
+              灵魂契合度 <strong id="res-match-score">96%</strong>
+            </div>
+          </header>
+
+          <!-- 人物主视觉区 -->
+          <div class="result-hero">
+            <div class="result-hero-left">
+              <div class="result-badges">
+                <span id="res-archetype" class="badge-archetype">谋士</span>
+                <span id="res-dynasty" class="badge-dynasty">三国 · 蜀汉</span>
+              </div>
+              <div class="result-name-row">
+                <h1 id="res-name" class="result-name">诸葛亮</h1>
+                <span id="res-alias" class="result-alias">卧龙先生</span>
+              </div>
+              <p id="res-archetype-tag" class="result-subrole">全能布局型谋士</p>
+            </div>
+
+            <div class="result-seal-box" aria-hidden="true">
+              <div id="res-seal" class="red-seal">卧龙</div>
+            </div>
+          </div>
+
+          <!-- 专属记忆点文案 -->
+          <blockquote class="signature-quote-box">
+            <span class="quote-mark quote-open" aria-hidden="true">“</span>
+            <p id="res-quote" class="signature-quote-text"></p>
+            <span class="quote-mark quote-close" aria-hidden="true">”</span>
+          </blockquote>
+
+          <!-- 关键词标签 -->
+          <div id="res-keywords" class="keyword-row"></div>
+
+          <!-- 灵魂七维星图 + 维度条 -->
+          <section class="result-section radar-section">
+            <div class="section-heading">
+              <span class="section-index">壹</span>
+              <h3>七维灵魂星图</h3>
+            </div>
+            <div class="radar-layout">
+              <div class="radar-canvas-box">
+                <svg id="radar-svg" viewBox="0 0 280 260" class="radar-svg" role="img" aria-label="七维性格雷达图"></svg>
+              </div>
+              <div id="dimension-bars" class="dimension-bars"></div>
+            </div>
+          </section>
+
+          <!-- 性格特点 -->
+          <section class="result-section">
+            <div class="section-heading">
+              <span class="section-index">贰</span>
+              <h3>性格特点</h3>
+            </div>
+            <p id="res-summary" class="result-summary"></p>
+            <ul id="res-traits" class="styled-list"></ul>
+          </section>
+
+          <!-- 匹配理由 -->
+          <section class="result-section">
+            <div class="section-heading">
+              <span class="section-index">叁</span>
+              <h3>为什么是你 · 匹配理由</h3>
+            </div>
+            <div id="res-match-reasons" class="match-reason-box"></div>
+          </section>
+
+          <!-- 隐藏优势 -->
+          <section class="result-section">
+            <div class="section-heading">
+              <span class="section-index">肆</span>
+              <h3>你的隐藏优势</h3>
+            </div>
+            <ul id="res-strengths" class="strength-list"></ul>
+          </section>
+
+          <!-- 趣味彩蛋 -->
+          <section class="result-section easter-section">
+            <div class="section-heading">
+              <span class="section-index">伍</span>
+              <h3>趣味彩蛋 · 若活在当代</h3>
+            </div>
+            <div id="res-easter-egg" class="easter-grid"></div>
+          </section>
+
+          <footer class="result-card-footer">
+            <span>《测测你的灵魂对应哪位中国历史人物》</span>
+            <span>趣味人格测试 · by songfeng</span>
+          </footer>
+        </article>
+
+        <!-- 底部操作区（不入截图主卡，方便分享与互动） -->
+        <div class="result-actions-panel">
+          <div class="action-row-primary">
+            <button type="button" id="btn-poster" class="btn btn-primary">
+              <svg viewBox="0 0 20 20" class="btn-icon" aria-hidden="true">
+                <path d="M4 14.5v1a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5v-1M10 3v9.5m0 0 3.5-3.5M10 12.5 6.5 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>生成分享海报图</span>
+            </button>
+            <button type="button" id="btn-copy" class="btn btn-secondary">
+              <svg viewBox="0 0 20 20" class="btn-icon" aria-hidden="true">
+                <rect x="7" y="7" width="9" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M13 7V5a1.5 1.5 0 0 0-1.5-1.5h-6A1.5 1.5 0 0 0 4 5v8a1.5 1.5 0 0 0 1.5 1.5H7" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              <span>复制专属文案</span>
+            </button>
+          </div>
+
+          <div class="action-row-secondary">
+            <button type="button" id="btn-gallery" class="btn btn-outline">
+              查看全部 14 位历史灵魂图鉴
+            </button>
+            <button type="button" id="btn-retake" class="btn btn-outline">
+              重新测试
+            </button>
+          </div>
+          <p class="share-tip">小贴士：点击「生成分享海报图」即可获得适配小红书与朋友圈的高清竖版分享图，也可直接手机长截图上方档案卡。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 分享海报预览弹窗 ==================== -->
+  <div id="poster-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="poster-modal-title">
+    <div class="modal-dialog poster-dialog">
+      <div class="modal-header">
+        <h3 id="poster-modal-title">小红书 / 朋友圈专属分享海报</h3>
+        <button type="button" class="modal-close" data-close-modal="poster-modal" aria-label="关闭弹窗">×</button>
+      </div>
+      <div class="modal-body poster-body">
+        <p class="poster-hint">手机端可长按下方图片直接保存至相册，电脑端可点击按钮下载高清 PNG。</p>
+        <div class="poster-preview-frame">
+          <img id="poster-preview-img" alt="历史灵魂测试分享海报" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-download-poster" class="btn btn-primary">下载高清海报 PNG</button>
+        <button type="button" class="btn btn-outline" data-close-modal="poster-modal">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 全部 14 位灵魂图鉴弹窗 ==================== -->
+  <div id="gallery-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+    <div class="modal-dialog gallery-dialog">
+      <div class="modal-header">
+        <h3 id="gallery-modal-title">七大原型 · 14 位历史灵魂图鉴</h3>
+        <button type="button" class="modal-close" data-close-modal="gallery-modal" aria-label="关闭弹窗">×</button>
+      </div>
+      <div class="modal-body gallery-body" id="gallery-list"></div>
+    </div>
+  </div>
+
+  <!-- 右下角专属水印 -->
+  <div class="site-watermark" aria-hidden="true">songfeng</div>
+
+  <!-- 轻提示 Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
